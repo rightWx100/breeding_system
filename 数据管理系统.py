@@ -37,7 +37,7 @@ def ui_create():
     main_frame.columnconfigure(1, weight=1)
 
     # 第 1 行：功能导航提示栏
-    nav_label = tk.Label(main_frame, text="", anchor= 'center', bg="#e8e8e8", font=("Arial", 12), padx=10)
+    nav_label = tk.Label(main_frame, text="", anchor= 'center', bg="#e8e8e8", font=("微软雅黑", 12), padx=10)
     nav_label.grid(row=1, column=0, columnspan=2, sticky="ew")
 
     # 第 2 行：功能选择 + 内容区

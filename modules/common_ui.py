@@ -1,5 +1,7 @@
 import tkinter as tk
 
+from modules.breeding.function import function_handlers
+
 
 def highlight_button(button, active_func_btn):
     """
@@ -19,20 +21,19 @@ def highlight_button(button, active_func_btn):
 
 
 def load_function_content(text, right_panel):
-    """
-    在右侧功能区中加载指定的功能内容。
-
-    参数：
-    - text: 当前子功能的名称
-    - right_panel: 右侧显示区容器
-    """
-    # 清空原有内容
+    # 清空旧内容
     for w in right_panel.winfo_children():
         w.destroy()
 
-    # 显示新的内容
-    label = tk.Label(right_panel, text=f"当前功能内容：{text}", font=("Arial", 16))
-    label.pack(pady=20)
+    # 查找是否有对应功能函数
+    handler = function_handlers.get(text)
+    if handler:
+        handler(right_panel)  # 调用对应功能函数并传入右侧容器
+    else:
+        # 默认提示
+        label = tk.Label(right_panel, text=f"功能“{text}”尚未实现", font=("微软雅黑", 14), fg="gray")
+        label.pack(pady=20)
+
 
 
 def load_subfunctions(sub_list, center_panel, right_panel):
@@ -55,8 +56,9 @@ def load_subfunctions(sub_list, center_panel, right_panel):
             text=name,
             anchor="center",  # 文本居中
             width=15,  # 固定宽度（单位：字符数）
-            font=("Arial", 10),
+            font=("微软雅黑", 10),
             bg="#e0e0e0",
             command=lambda n=name: load_function_content(n, right_panel)
         )
         btn.pack(fill="x", padx=10, pady=5)
+

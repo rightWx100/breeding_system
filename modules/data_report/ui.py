@@ -10,7 +10,7 @@ def build_ui(parent):
     frame = tk.Frame(parent)
     frame.pack(fill="both", expand=True)
 
-    title = tk.Label(frame, text="数据报表查询模块", font=("Arial", 18))
+    title = tk.Label(frame, text="数据报表查询模块", font=("微软雅黑", 18))
     title.pack(pady=20)
 
     # 表格示例

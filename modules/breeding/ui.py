@@ -38,10 +38,12 @@ def build_ui(parent):
     # 主功能及其子功能映射表
     function_map = {
         "种猪管理": ["种猪档案登记", "核心群等级划分", "种猪状态变更"],
-        "种猪选配": ["选配方案制定", "选配效果评估", "种猪配种选配报告"],
-        "遗传数据查询": ["种猪个体信息查询", "群体EBV查询", ""],
-        "遗传评估计算": ["育种值估计", "近交系数计算", "繁殖性能汇总"],
-        "遗传评估报告":["选配效果评估报告","选留效果评估报告","遗传进展"]
+        "种猪选配": ["选配方案制定", "选配效果评估","种猪禁配方案制定"],
+        "种猪系谱管理": ["父母信息录入", "血统完整性检查", "家系可视化"],
+        "遗传数据查询": ["种猪个体信息查询", "群体EBV统计", "群体近交系数汇总"],
+        "遗传评估计算": ["个体EBV计算", "近交系数计算", "繁殖性能汇总"],
+        "遗传评估报告":["选配效果评估报告","选留效果评估报告","遗传进展"],
+
     }
 
     active_func_btn = {"button": None}
@@ -74,7 +76,7 @@ def create_btn(name, left_panel, right_panel, center_panel, active_func_btn, fun
         width=16,
         bg="#f0f0f0",
         relief="flat",
-        font=("Arial", 10)
+        font=("微软雅黑", 10)
     )
 
     btn.configure(command=lambda f=name, b=btn: (
@@ -101,7 +103,7 @@ def load_subfunctions(sub_list, center_panel, right_panel):
             text=name,
             anchor="center",
             width=20,
-            font=("Arial", 10),
+            font=("微软雅黑", 10),
             bg="#e0e0e0",
         )
 

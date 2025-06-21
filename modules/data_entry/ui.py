@@ -22,7 +22,7 @@ def build_ui(parent):
     def load_subform(name):
         for widget in content_area.winfo_children():
             widget.destroy()
-        label = tk.Label(content_area, text=f"当前子功能：{name}", font=("Arial", 16))
+        label = tk.Label(content_area, text=f"当前子功能：{name}", font=("微软雅黑", 16))
         label.pack(pady=20)
 
     submodules = ["录入基本信息", "录入健康信息", "录入繁殖记录"]
